@@ -1,0 +1,30 @@
+/*
+
+	A task is an object
+	A task has a list activities
+	A task has an API
+*/
+
+task sampleTask
+task completeTask
+task onCompleted
+
+sampleTask {
+
+	doLast {
+		println "Hello, task has started" 
+	}
+
+}
+
+completeTask {
+	dependsOn << sampleTask
+	 doLast {
+	 	println "Hello, task has completed" 
+	 }
+}
+
+onCompleted {
+
+	dependsOn = [sampleTask,completeTask]
+}
