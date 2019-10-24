@@ -1,9 +1,31 @@
+apply plugin : "com.android.application"
+
 /*
 
 	A task is an object
 	A task has a list activities
 	A task has an API
 */
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+  }
 
 task sampleTask
 task completeTask
@@ -27,4 +49,8 @@ completeTask {
 onCompleted {
 
 	dependsOn = [sampleTask,completeTask]
+}
+
+dependencies {
+  testImplementation 'junit:junit:4.12'
 }
